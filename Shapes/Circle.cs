@@ -13,17 +13,18 @@ namespace ShapeArear
             RadiusLength = radiusLength;
             CountArea();
         }
-        protected override double CountArea()
-        {
-            Area = Math.Pow(RadiusLength, 2) * Math.PI;
-            return Area;
-        }
 
         public void SetRadiusLength(int value)
         {
             if (value <= 0) throw new IncorrectSideLengthException("Длина радиуса не может быть меньше 0");
             RadiusLength = value;
             CountArea();
+        }
+
+        protected override double CountArea()
+        {
+            Area = Math.Pow(RadiusLength, 2) * Math.PI;
+            return Area;
         }
     }
 }

@@ -2,16 +2,16 @@
 
 namespace ShapeArear
 {
-    public class RegularShape: Shape
+    public class RegularShape : Shape
     {
         public int SideLength { get; set; }
 
         public int SideCount { get; set; }
 
-        public RegularShape(int SideLength, int sideCount)
+        public RegularShape(int sideLength, int sideCount)
         {
-            this.SideLength = SideLength;
-            this.SideCount = sideCount;
+            SideLength = sideLength;
+            SideCount = sideCount;
             CountArea();
         }
 
@@ -21,17 +21,18 @@ namespace ShapeArear
             SideCount = value;
             CountArea();
         }
-        protected override double CountArea()
-        {
-            Area = ((SideCount * Math.Pow(SideLength, 2)) / (4 * Math.Tan(Math.PI / SideCount)));
-            return Area;
-        }
 
         public void SetSideLength(int value)
         {
             if (value <= 0) throw new IncorrectSideLengthException("Длина стороны такой быть не может");
             SideLength = value;
             CountArea();
+        }
+
+        protected override double CountArea()
+        {
+            Area = ((SideCount * Math.Pow(SideLength, 2)) / (4 * Math.Tan(Math.PI / SideCount)));
+            return Area;
         }
     }
 }
