@@ -1,6 +1,10 @@
-﻿namespace ShapeArear.Exceptions;
-
-public class IncorrectTrigonParameterException
+﻿namespace ShapeArear.Exceptions
 {
-    
+    public class IncorrectTrigonParameterException : Exception
+    {
+        public IncorrectTrigonParameterException(string message)
+            : base(message)
+        {
+        }
+    }
 }
